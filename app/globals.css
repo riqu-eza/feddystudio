@@ -1,26 +1,41 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --color-bg: #090909;
+  --color-card: #141414;
+  --color-gold: #d6ad5b;
+  --color-light: #f7f7f7;
+  --color-muted: #aaaaaa;
+  --color-line: #272727;
+  --color-line-soft: #252525;
+
+  --font-sans: Arial, Helvetica, sans-serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--color-bg);
+    color: var(--color-light);
+    font-family: var(--font-sans);
+    line-height: 1.6;
   }
+  a { color: inherit; text-decoration: none; }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer utilities {
+  .container-x {
+    width: min(1120px, 92%);
+    margin-inline: auto;
+  }
+  .bg-hero-radial {
+    background: radial-gradient(circle at 50% 25%, #2a2419 0, #111 32%, #090909 68%);
+  }
+  .bg-card-grad {
+    background: linear-gradient(145deg, #19160f, #101010);
+  }
+  .bg-photo-grad {
+    background: linear-gradient(145deg, #292929, #111);
+  }
 }
